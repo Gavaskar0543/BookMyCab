@@ -1,10 +1,11 @@
-
-
+import Header from "./Header";
+import Home from "../Pages/Home";
 function App() {
   return (
     
      <>
-     Harae Ram! Harae Krishna !! Krishna Krishna!
+    <Header/>
+    <Home/>
      </>
   );
 }
