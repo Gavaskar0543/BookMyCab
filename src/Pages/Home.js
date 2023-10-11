@@ -49,7 +49,7 @@ export default function Home({
     <>
     
     <MainDiv className="expand-lg">
-      <div className="card-group" style={{ marginTop: "12rem", marginLeft: "4rem", zIndex: '10' }}>
+      <div className="card-group expand-lg" id="box" style={{  zIndex: '10' }}>
         <div className="card">
           <div className="card-header">
             <p className="fs-2 fw-medium text-centr card-title fw-2 text-center">BookNow
@@ -140,7 +140,10 @@ background-size:cover;
 background-repeate:no-repeat;
 background-position:center;
 
-
+  #box{
+    margin-top:12rem;
+    margin-left:4rem;
+  }
   .active {
     transition: border 0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color:grey;
@@ -156,5 +159,13 @@ background-position:center;
   
   
 
-
+ 
+  @media screen and (max-width: 480px) {
+    #box{
+      margin-left:-2rem;
+      padding:10%;
+      color:green;
+    }
+  }
+  
 `

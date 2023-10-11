@@ -1,12 +1,27 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 export default function Booking({booked,cab,pickup,drop}) {
+  const [phone, setPhone] = useState('');
+  const [passengerCount, setPassengerCount] = useState('');
+  
+ 
+  const handlePassenger = (e) => {
+    setPassengerCount(e.target.value);
+  };
 
-  const handleConfirmBooking = () =>{
-    const [phone,setPhone] = useState('');
-    const [passengerCount,setPassengerCount] = useState('');
+  const handlePhone = (e) => {
+    setPhone(e.target.value);
+  };
+   
+    const handleConfirmBooking = () =>{
+      if(phone === '' || phone.length <10 || passengerCount === ''){
+        alert('Enter valid Credintial ')
+      }
+      else{
+        alert('Booking Confirm Keep OTP Ready Recived to Phone no.',phone);
+      }
+    }
 
-  }
   return (
    <MainDiv>
    <div>
@@ -33,11 +48,11 @@ export default function Booking({booked,cab,pickup,drop}) {
       <hr/>
       <div>
       <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="Phone number"/>
+  <input type="text" class="form-control" id="floatingInput" value={phone}  onChange={handlePhone} placeholder="Phone number"/>
   <label for="floatingInput">Phone Number</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="number" class="form-control" id="floatingInput" placeholder="Passenger"/>
+  <input type="number" class="form-control"  value={passengerCount} onChange={handlePassenger} id="floatingInput" placeholder="Passenger"/>
   <label for="floatingInput">Number of Passenger</label>
 </div>
     <div class="form-group">

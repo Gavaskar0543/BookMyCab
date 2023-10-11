@@ -60,4 +60,6 @@ export default function Body() {
 const MainDiv = styled.div`
 height:90vh;
 margin-top:10%;
+
+
 `

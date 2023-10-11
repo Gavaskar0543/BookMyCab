@@ -91,7 +91,7 @@ setBooked}) {
 
 
 const handleBookNow = (id) =>{
-  
+  let obj = carList[id];
   setBooked(obj);
   navigate('/booking');
   
