@@ -1,29 +1,99 @@
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
+import { useState,useEffect } from 'react';
 export default function SelectCab({pickup,
   drop,
   cab,
   ride}) {
+    const [carList,setCarList] = useState([]);
+   
     const navigate = useNavigate();
- let Economy = [{
-  price:'600',
-  img:'',
- },
-{price:'560',
-img:'',
-},
-{
-  price:'700',
-  img:''
-},{
-  price:'630',
-  img:''
-}];
+    useEffect(() => {
+      let data = [];
+  
+      let imagePathEconomy = 'https://cdn-kgelb.nitrocdn.com/ZjDZscJXDYigIUYdvVdZBKwDQxBJmkBW/assets/images/optimized/wp-content/uploads/2016/05/9cefc3ade170bca82cfd0990df2275f4.tata-indica.jpg';
+      let imagePathPremium = 'https://images.jdmagicbox.com/comp/tirupur/z6/9999px421.x421.170810154647.l7z6/catalogue/r2-travels-veerapandi-tirupur-taxi-services-0c6ak0mtl9.jpg?clr=';
+      let imagePathLuxury = 'https://5.imimg.com/data5/SELLER/Default/2021/6/FH/OD/GU/9071665/swift-dzire-rs-1500-500x500.png';
+      if (cab === 'Economy') {
+        data = [
+          {
+            price: '600',
+            img: imagePathEconomy,
+            ETA: '10mins'
+          },
+          {
+            price: '560',
+            img: imagePathEconomy,
+            ETA: '7mins'
+          },
+          {
+            price: '700',
+            img: imagePathEconomy,
+            ETA: '15mins'
+          },
+          {
+            price: '630',
+            img: imagePathEconomy,
+            ETA: '5mins'
+          }
+        ];
+      } else if (cab === 'Premium') {
+        data = [
+          {
+            price: '1600',
+            img: imagePathPremium,
+            ETA: '6mins'
+          },
+          {
+            price: '1560',
+            img: imagePathPremium,
+            ETA: '8mins'
+          },
+          {
+            price: '1700',
+            img: imagePathPremium,
+            ETA: '4mins'
+          },
+          {
+            price: '1630',
+            img: imagePathPremium,
+            ETA: '15mins'
+          }
+        ];
+      } else if (cab === 'Luxury') {
+        data = [
+          {
+            price: '1600',
+            img: imagePathLuxury,
+            ETA: '6mins'
+          },
+          {
+            price: '1560',
+            img: imagePathLuxury,
+            ETA: '8mins'
+          },
+          {
+            price: '1700',
+            img: imagePathLuxury,
+            ETA: '4mins'
+          },
+          {
+            price: '1630',
+            img: imagePathLuxury,
+            ETA: '15mins'
+          }
+        ];
+      }
+  
+      setCarList(data);
+    }, [cab]);
+
+
 const handleBookNow = () =>{
   navigate('/booking');
   
 }
-  
+
   return (
    
    <MainDiv className='expand-lg'>
@@ -34,9 +104,9 @@ const handleBookNow = () =>{
       </div>
      </div>
      <div className='d-flex flex-wrap justify-content-around align-items-center'>
-    {Economy.map((data) =>(
+    {carList.map((data) =>(
   <div class="card p-2 m-2" style={{width: "18rem",zIndex:10}}>
-  <img src="..." class="card-img-top" alt="..."/>
+  <img src={data.img} class="card-img-top" alt="..."/>
   <div class="card-body">
   <h5 className="card-title">Class:{cab}</h5>
 <p className='card-text'>Pickup Location:{pickup}</p>
@@ -62,11 +132,4 @@ const handleBookNow = () =>{
 
 const MainDiv = styled.div`
 height:84vh;
-background-image:none;
-background-size:cover;
-background-repeate:no-repeat;
-background-position:center;
-filter: grayscale(30%);
-
-
 `

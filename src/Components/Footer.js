@@ -1,43 +1,27 @@
-import React from 'react'
-import styled from 'styled-components'
-export default function Footer() {
-  return (
-    <MainDiv>
-          
-          
-      <div className="container">
-        <div className="">
-          <div className="">
-            <h3>Contact Us</h3>
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: info@yourcabservices.com</p>
-          </div>
-          <div className="">
-            <h3>Our Services</h3>
-            <ul>
-              <li>Ride Booking</li>
-              <li>Airport Transfers</li>
-              <li>Corporate Travel</li>
-              <li>Tours and Sightseeing</li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <h3>Partnership</h3>
-            <p>Become a Partner Driver</p>
-            <p>Business Collaborations</p>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; 2023 Your Cab Services. All rights reserved.</p>
-        </div>
-      </div>
-   
-      
-    
+import React from 'react';
 
-    </MainDiv>
-  )
+const Footer = () => {
+    return (
+        <footer className="bg-dark text-light p-4">
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <p>&copy; 2023 BookMyCab. All rights reserved.</p>
+                    </div>
+                   
+                    <div className="col-12 col-md-6 text-end">
+                        <div>
+                        <p className='fs-6 fw-semibold'>Follow Us</p>
+                        </div>
+                        <a href="#"><i className="fab fa-facebook-f fa-2x p-1 text-light"></i></a>
+                        <a href="#"><i className="fab fa-twitter fa-2x p-1 text-light"></i></a>
+                        <a href="#"><i className="fab fa-instagram fa-2x p-1 text-light"></i></a>
+                        <a href="#"><i className="fab fa-linkedin-in fa-2x p-1 text-light"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
 }
-const MainDiv = styled.div`
 
-`
+export default Footer;

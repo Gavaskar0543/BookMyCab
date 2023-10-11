@@ -65,10 +65,10 @@ export default function Home({
               {opt.map((text, index) => (
                 <div
                   key={index}
-                  className={`div-item d-flex align-items-center justify-content-center ${activeDiv === index ? 'active fw-semibold text-warning' : ''}`}
+                  className={`div-item d-flex align-items-center pointer-cursor justify-content-center ${activeDiv === index ? 'active fw-semibold' : ''}`}
                   onClick={() => handleDivClick(index)}
                 >
-                  <p className="fs-6 fw-medium px-2">{text}</p>
+                  <p className="fs-6 fw-medium px-2 cursor-pointer">{text}</p>
                 </div>
               ))}
             </div>
@@ -96,17 +96,17 @@ export default function Home({
               <div className="mb-2">
                 <p className="fs-6 fw-semibold text-center">Select Cab Type</p>
               </div>
-              <div className="d-flex  justify-content-around align-items-center mb-4">
+              <div className="d-flex pointer-cursor justify-content-around align-items-center mb-4">
               <div class="form-check">
-  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" onChange={handleCabType} value="Economy"/>
+  <input type="radio" class="form-check-input pointer-cursor" id="regularRadio" name="radioOption" onChange={handleCabType} value="Economy"/>
   <label class="form-check-label" for="regularRadio">Economy</label>
 </div>
 <div class="form-check">
-  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption"  onChange={handleCabType} value="Premium,"/>
+  <input type="radio" class="form-check-input pointer-cursor" id="regularRadio" name="radioOption"  onChange={handleCabType} value="Premium"/>
   <label class="form-check-label" for="regularRadio">Premium</label>
 </div>
 <div class="form-check">
-  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption"  onChange={handleCabType} value="Luxury"/>
+  <input type="radio" class="form-check-input pointer-cursor" id="regularRadio" name="radioOption"  onChange={handleCabType} value="Luxury"/>
   <label class="form-check-label" for="regularRadio">Luxury</label>
 </div>
               </div>
@@ -144,8 +144,15 @@ background-position:center;
 
   .active {
     transition: border 0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color:grey;
     border-bottom: 2px solid grey;
     border-radius: 10px;
+    cursor:pointer
+
+  }
+  
+  .pointer-cursor{
+    cursor:pointer;
   }
   
   
