@@ -5,7 +5,7 @@ export default function Booking() {
    <MainDiv>
    <div>
     <div>
-      <p className='text-center mt-2 fs-2 fw-semibold'>Book With Credentials</p>
+      <p className='text-center mt-2 fs-2 fw-semibold'> Review Booking</p>
     </div>
     <div className=' container  d-flex flex-wrap justify-content-around align-items-center'>
       <div  className='p-2 mb-2'>
@@ -30,10 +30,21 @@ export default function Booking() {
   <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"/>
   <label for="floatingInput">Phone Number</label>
 </div>
-<div class="form-floating">
-  <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-  <label for="floatingPassword">Password</label>
+<div class="form-floating mb-3">
+  <input type="number" class="form-control" id="floatingInput" placeholder="Passenger"/>
+  <label for="floatingInput">Number of Passenger</label>
 </div>
+    <div class="form-group">
+     <p className='fs-6 fw-medium text-center'>Payment Type</p>
+    <select class="form-control" id="paymentType" name="paymentType">
+    <option value="cash">Cash</option>
+          <option value="online">Online</option>
+        </select>
+    </div>
+     <div className='mt-4 d-flex justify-content-center align-item-center'>
+      <button className='btn btn-dark text-white'>Confirm Booking</button>
+     </div>
+
       </div>
       </div>
     </div>
