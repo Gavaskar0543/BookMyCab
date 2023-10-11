@@ -3,7 +3,15 @@ import styled from "styled-components";
 import Body from '../Components/Body';
 import Footer from "../Components/Footer";
 export default function Home() {
-  const [activeDiv, setActiveDiv] = useState(null);
+  const [pickup,setPickup] = useState('');
+  const [drop,setDrop] = useState('');
+  const [activeDiv,setActiveDiv] = useState(false);
+  const handlePickUpChange = (e) => {
+    setPickup(e.target.value);
+  };
+  const handleDropChange = (e) =>{
+    setDrop(e.target.value);
+  }
 
   const handleDivClick = (index) => {
     setActiveDiv(index);
@@ -36,8 +44,10 @@ export default function Home() {
             <div className=" d-flex justify-content-around mt-4 ">
               <div class="input-group mb-3">
                 <div class="form-floating px-2">
-                  <input type="text" class="form-control fw-medium" id="floatingInputGroup1" placeholder="Enter Pickup Location" />
+                  <input type="text" class="form-control fw-medium" id="floatingInputGroup1" placeholder="Enter Pickup Location"  value={pickup}
+        onChange={handlePickUpChange} />
                   <label for="floatingInputGroup1">PickUp</label>
+      
                 </div>
               </div>
               <div>
@@ -45,13 +55,33 @@ export default function Home() {
               </div>
               <div class="input-group mb-3">
                 <div class="form-floating px-2">
-                  <input type="text" class="form-control fw-medium" id="floatingInputGroup2" placeholder="Enter Drop Location" />
+                  <input type="text" class="form-control fw-medium" id="floatingInputGroup2" onChange={handleDropChange} value={drop} placeholder="Enter Drop Location" />
                   <label for="floatingInputGroup2">Drop</label>
                 </div>
 
               </div>
             </div>
-            <div className="d-flex justify-content-center align-item-center">
+            <div>
+              <div className="mb-2">
+                <p className="fs-6 fw-semibold text-center">Select Cab Type</p>
+              </div>
+              <div className="d-flex  justify-content-around align-items-center mb-4">
+              <div class="form-check">
+  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" value="Economy"/>
+  <label class="form-check-label" for="regularRadio">Economy</label>
+</div>
+<div class="form-check">
+  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" value="Premium,"/>
+  <label class="form-check-label" for="regularRadio">Premium</label>
+</div>
+<div class="form-check">
+  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" value="Luxury"/>
+  <label class="form-check-label" for="regularRadio">Luxury</label>
+</div>
+              </div>
+
+            </div>
+            <div className="d-flex justify-content-center align-item-center mt-2 mb-3">
               <button className="btn btn-dark text-white fw-semibold rounded">Search cab</button>
             </div>
           </div>
