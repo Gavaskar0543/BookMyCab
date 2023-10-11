@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Home() {
   return (
     <MainDiv className="expand-lg">
-      <div className="w-25 border border-4">
+      <div className="w-50 border expand-lg  border-4">
         <div>
             <p className="fs-3 fw-medium w-full text-center text-warning">Ride Now</p>
         </div>
