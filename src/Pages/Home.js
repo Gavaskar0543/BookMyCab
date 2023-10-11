@@ -1,24 +1,55 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { PassangerContext } from "../Context";
 import Body from '../Components/Body';
+
 import Footer from "../Components/Footer";
-export default function Home() {
-  const [pickup,setPickup] = useState('');
-  const [drop,setDrop] = useState('');
+export default function Home({
+  pickup,
+  setPickup,
+  drop,
+  setDrop,
+  cab,
+  setCab,
+  ride,
+  setRide,}
+) {
+  const navigate = useNavigate();
+  //to handle the type of ride
   const [activeDiv,setActiveDiv] = useState(false);
+  //handling inputs for pickup and drop
   const handlePickUpChange = (e) => {
     setPickup(e.target.value);
   };
   const handleDropChange = (e) =>{
     setDrop(e.target.value);
   }
+  const handleCabType=(e) =>{
+    setCab(e.target.value);
+  }
 
   const handleDivClick = (index) => {
     setActiveDiv(index);
+    let rideType = opt[index];
+    setRide(rideType);
   };
+  const handleCabBooking = () =>{
+    if(cab === '' || ride === '' || drop === ''|| pickup === ''){
+      alert('something missing');
+      return;
+    }
+    else{
+      navigate('/selectCab');
+    
+    }
+  }
   const opt = ["RideNow", "Rent By Hours", "Advance Booking"];
   return (
-    <><MainDiv className="expand-lg">
+
+    <>
+    <PassangerContext.Provider value={{ride,cab,pickup,drop}}>
+    <MainDiv className="expand-lg">
       <div className="card-group" style={{ marginTop: "12rem", marginLeft: "4rem", zIndex: '10' }}>
         <div className="card">
           <div className="card-header">
@@ -67,28 +98,29 @@ export default function Home() {
               </div>
               <div className="d-flex  justify-content-around align-items-center mb-4">
               <div class="form-check">
-  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" value="Economy"/>
+  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" onChange={handleCabType} value="Economy"/>
   <label class="form-check-label" for="regularRadio">Economy</label>
 </div>
 <div class="form-check">
-  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" value="Premium,"/>
+  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption"  onChange={handleCabType} value="Premium,"/>
   <label class="form-check-label" for="regularRadio">Premium</label>
 </div>
 <div class="form-check">
-  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption" value="Luxury"/>
+  <input type="radio" class="form-check-input" id="regularRadio" name="radioOption"  onChange={handleCabType} value="Luxury"/>
   <label class="form-check-label" for="regularRadio">Luxury</label>
 </div>
               </div>
 
             </div>
             <div className="d-flex justify-content-center align-item-center mt-2 mb-3">
-              <button className="btn btn-dark text-white fw-semibold rounded">Search cab</button>
+              <button className="btn btn-dark text-white fw-semibold rounded " onClick={handleCabBooking}>Search cab</button>
             </div>
           </div>
         </div>
       </div>
 
     </MainDiv>
+    </PassangerContext.Provider>
    <div>
    <Body/>
    </div>
