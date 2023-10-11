@@ -11,6 +11,8 @@ function App() {
    const [cab,setCab] = useState('');
    //selectRide Type
    const[ride,setRide] = useState('');
+   //select BookedCab
+   const[booked,setBooked] =useState({});
 const router = createRoutesFromElements(
   <>
    
@@ -32,10 +34,16 @@ const router = createRoutesFromElements(
       drop={drop}
       cab={cab}
       ride={ride}
-     
+      setBooked={setBooked}
       
       />}/>
-      <Route path="/booking" element={<Booking/>}/>
+      <Route path="/booking" element={<Booking
+       booked={booked} 
+      pickup={pickup}
+      drop={drop}
+      cab={cab}
+      
+      />}/>
   </>
 );
 const route = createBrowserRouter(router);

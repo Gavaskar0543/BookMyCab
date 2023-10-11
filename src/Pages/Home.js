@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { PassangerContext } from "../Context";
 import Body from '../Components/Body';
 
 import Footer from "../Components/Footer";
@@ -48,7 +47,7 @@ export default function Home({
   return (
 
     <>
-    <PassangerContext.Provider value={{ride,cab,pickup,drop}}>
+    
     <MainDiv className="expand-lg">
       <div className="card-group" style={{ marginTop: "12rem", marginLeft: "4rem", zIndex: '10' }}>
         <div className="card">
@@ -120,7 +119,7 @@ export default function Home({
       </div>
 
     </MainDiv>
-    </PassangerContext.Provider>
+   
    <div>
    <Body/>
    </div>

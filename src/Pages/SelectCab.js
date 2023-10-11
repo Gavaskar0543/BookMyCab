@@ -4,7 +4,8 @@ import { useState,useEffect } from 'react';
 export default function SelectCab({pickup,
   drop,
   cab,
-  ride}) {
+  ride,
+setBooked}) {
     const [carList,setCarList] = useState([]);
    
     const navigate = useNavigate();
@@ -89,7 +90,9 @@ export default function SelectCab({pickup,
     }, [cab]);
 
 
-const handleBookNow = () =>{
+const handleBookNow = (id) =>{
+  
+  setBooked(obj);
   navigate('/booking');
   
 }
@@ -104,9 +107,12 @@ const handleBookNow = () =>{
       </div>
      </div>
      <div className='d-flex flex-wrap justify-content-around align-items-center'>
-    {carList.map((data) =>(
-  <div class="card p-2 m-2" style={{width: "18rem",zIndex:10}}>
-  <img src={data.img} class="card-img-top" alt="..."/>
+    {carList.map((data,Index) =>(
+  <div class="card p-2 m-2 position-relative" style={{width: "18rem",zIndex:10}}>
+  <img src={data.img} class="card-img-top" alt="car-image"/>
+  <span class="position-absolute top-0 start-80 translate-middle badge rounded-pill bg-dark text-white">
+    {data.ETA}
+  </span>
   <div class="card-body">
   <h5 className="card-title">Class:{cab}</h5>
 <p className='card-text'>Pickup Location:{pickup}</p>
@@ -114,7 +120,7 @@ const handleBookNow = () =>{
 <p className='card-text'>Type:{ride}</p>
 <p className='card-text'>Price:&#8377;{data.price}</p>  </div>
 <div className='d-flex align-items-center justify-content-center'>
-  <button className='btn btn-dark text-white' onClick={handleBookNow}>Book Now</button>
+  <button className='btn btn-dark text-white' onClick={() =>{handleBookNow(Index)}}>Book Now</button>
 </div>
 
 </div>

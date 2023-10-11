@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-export default function Booking() {
+export default function Booking({booked,cab,pickup,drop}) {
+
+  const handleConfirmBooking = () =>{
+    const [phone,setPhone] = useState('');
+    const [passengerCount,setPassengerCount] = useState('');
+
+  }
   return (
    <MainDiv>
    <div>
@@ -10,13 +16,13 @@ export default function Booking() {
     <div className=' container  d-flex flex-wrap justify-content-around align-items-center'>
       <div  className='p-2 mb-2'>
       <div className="card" style={{ width: "18rem" }} >
-    <img src="..." className="card-img-top" alt="..." />
+    <img src={booked.img} className="card-img-top" alt="..." />
     <div className="card-body">
-      <h5 className="card-title">Class: </h5>
-      <p className='card-text'>Pickup Location: </p>
-      <p className='card-text'>Drop Location: </p>
-      <p className='card-text'>Type: </p>
-      <p className='card-text'>Price: &#8377;</p>
+      <h5 className="card-title">Class:{cab} </h5>
+      <p className='card-text'>Pickup Location:{pickup} </p>
+      <p className='card-text'>Drop Location:{drop} </p>
+      <p className='card-text'>ETA:{booked.ETA} </p>
+      <p className='card-text'>Price: &#8377;{booked.price}</p>
     </div>
   </div>
       </div>
@@ -27,7 +33,7 @@ export default function Booking() {
       <hr/>
       <div>
       <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+  <input type="text" class="form-control" id="floatingInput" placeholder="Phone number"/>
   <label for="floatingInput">Phone Number</label>
 </div>
 <div class="form-floating mb-3">
@@ -42,7 +48,7 @@ export default function Booking() {
         </select>
     </div>
      <div className='mt-4 d-flex justify-content-center align-item-center'>
-      <button className='btn btn-dark text-white'>Confirm Booking</button>
+      <button className='btn btn-dark text-white' onClick={handleConfirmBooking}>Confirm Booking</button>
      </div>
 
       </div>

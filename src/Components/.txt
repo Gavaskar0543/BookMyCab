@@ -1,4 +1,0 @@
-for Location api
-https://us1.locationiq.com/v1/search?key=<Your_API_Access_Token>&q=hyderabad&format=json
-access token
-pk.54db90be31358ae4b49bf4d7080aec2e
