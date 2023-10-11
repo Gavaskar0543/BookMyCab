@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Body from '../Components/Body';
+import Footer from "../Components/Footer";
 export default function Home() {
   const [activeDiv, setActiveDiv] = useState(null);
 
@@ -61,6 +62,9 @@ export default function Home() {
    <div>
    <Body/>
    </div>
+   <div>
+        <Footer />
+      </div>
 
     </>
   );
